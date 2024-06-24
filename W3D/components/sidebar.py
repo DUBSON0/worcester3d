@@ -14,8 +14,8 @@ def sidebar_header() -> rx.Component:
     return rx.hstack(
         # The logo.
         rx.color_mode_cond(
-            rx.image(src="/w3d_logo_black.png", height="2em"),
-            rx.image(src="/w3d_logo_white.png", height="2em"),
+            rx.image(src="/w3d_logo_black.png", height="3em"),
+            rx.image(src="/w3d_logo_white.png", height="3em"),
         ),
         rx.spacer(),
         # Link to Reflex GitHub repo.
@@ -78,9 +78,7 @@ def sidebar_item(text: str, url: str) -> rx.Component:
         rx.Component: The sidebar item component.
     """
     # Whether the item is active.
-    active = (rx.State.router.page.path == f"/{text.lower()}") | (
-        (rx.State.router.page.path == "/") & text == "Home"
-    )
+    active = (rx.State.router.page.path == f"/{text.lower()}") | ((rx.State.router.page.path == "/") & text == "Home")
 
     return rx.link(
         rx.hstack(
@@ -121,13 +119,9 @@ def sidebar() -> rx.Component:
         rx.vstack(
             sidebar_header(),
             rx.vstack(
-                *[
-                    sidebar_item(
-                        text=page.get("title", page["route"].strip("/").capitalize()),
-                        url=page["route"],
-                    )
-                    for page in get_decorated_pages()
-                ],
+                sidebar_item("Home", "/"),
+                sidebar_item("Get Started", "/start"),
+                sidebar_item("About", "/about"),
                 width="100%",
                 overflow_y="auto",
                 align_items="flex-start",
