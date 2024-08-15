@@ -25,7 +25,7 @@ def index() -> rx.Component:
         rx.divider(),
         rx.text(
             """Worcester 3D Robotics offers 3D printer repair services in
-               Worcester, MA. We strive to provide top-notch repair and maintenance services for all of
+               Worcester, Massachussetts. We strive to provide top-notch repair and maintenance services for all of
                your 3D printing needs. Our team of experienced technicians is dedicated to ensuring
                that your 3D printer is running smoothly and efficiently so you can focus on what
                matters most. If you’re in need of a quick repair or a full maintenance check-up, we’ve
